@@ -53,7 +53,7 @@ namespace WindowsFormsApp1.Services
             List<string> result = new List<string>();
             foreach (Person p in _people)
             {
-                result.Add("Челик " + p.Name + " сейчас " + p.getStateString() + " на этаже " + p.CurrentFloor);
+                result.Add("Пассажир " + p.Name + " сейчас " + p.getStateString() + " на этаже " + p.CurrentFloor);
             }
             return result;
         }
@@ -64,26 +64,55 @@ namespace WindowsFormsApp1.Services
 
         private void elevatorThread()   // thread func
         {
+           int countTrips = 0;
             int f = 1;
             while (_running) {
-                Console.Out.WriteLine("тыц " + f); // just to know where elevator is
+                while (f < _floors)
+                {
+                    Console.Out.WriteLine("тыц " + f); // just to know where elevator is
 
-                for (int i = 0; i < _people.Count; ++i) {
-                    _people[i].elevatorAtFloorSlot(f); // notify all persons
-                    currentWeight = 0;
+                    for (int i = 0; i < _people.Count; ++i)
+                    {
+                        _people[i].elevatorAtFloorSlot(f); // notify all persons
+                        currentWeight = 0;
 
-                    if (_people[i].getState() == PersonStates.carriedToDestFloor)
-                        currentWeight += _people[i].Weight;  // calculate current weight
+                        if (_people[i].getState() == PersonStates.carriedToDestFloor)
+                            currentWeight += _people[i].Weight;  // calculate current weight
 
-                    if (_people[i].getState() == PersonStates.removed)
-                        _people.Remove(_people[i--]);  // roll back pointer cos we delete current item
+                        if (_people[i].getState() == PersonStates.removed)
+                            _people.Remove(_people[i--]);  // roll back pointer cos we delete current item
+                    }
+
+                    _notifyAgent.stateChanged();    // notify Presenter that peole and elevator states are changed and He need to update information on the View
+
+                    f++;
+                    // simple counter
+                    Thread.Sleep(Settings.GeneralSettings.FLOOR_SPEED);     // move from one floor to another
                 }
+                countTrips++;
+                while (f > 1)
+                {
+                    Console.Out.WriteLine("тыц " + f); // just to know where elevator is
 
-                _notifyAgent.stateChanged();    // notify Presenter that peole and elevator states are changed and He need to update information on the View
+                    for (int i = 0; i < _people.Count; ++i)
+                    {
+                        _people[i].elevatorAtFloorSlot(f); // notify all persons
+                        currentWeight = 0;
 
-                ++f;
-                if (f > _floors) f = 1; // simple counter
-                Thread.Sleep(Settings.GeneralSettings.FLOOR_SPEED);     // move from one floor to another
+                        if (_people[i].getState() == PersonStates.carriedToDestFloor)
+                            currentWeight += _people[i].Weight;  // calculate current weight
+
+                        if (_people[i].getState() == PersonStates.removed)
+                            _people.Remove(_people[i--]);  // roll back pointer cos we delete current item
+                    }
+
+                    _notifyAgent.stateChanged();    // notify Presenter that peole and elevator states are changed and He need to update information on the View
+
+                    f--;
+                    // simple counter
+                    Thread.Sleep(Settings.GeneralSettings.FLOOR_SPEED);     // move from one floor to another
+                }
+                countTrips++;
             }
         }
 

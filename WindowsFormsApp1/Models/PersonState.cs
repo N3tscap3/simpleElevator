@@ -21,13 +21,13 @@ namespace WindowsFormsApp1.Models
         public string getStateString() {
             switch (_state) {
                 case PersonStates.waitsForElevator:
-                    return "ждет лифтик";   // all text constants must be in separate file (for ex: Settings/Strings.cs) 
+                    return "ждет лифт";   // all text constants must be in separate file (for ex: Settings/Strings.cs) 
 
                 case PersonStates.carriedToDestFloor:
-                    return "едет себе";
+                    return "едет ";
 
                 case PersonStates.gaveUp:
-                    return "вышел и переводит дух";
+                    return "вышел и ожидает";
 
                 case PersonStates.removed:
                     return "why do u see this??";

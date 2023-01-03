@@ -37,3 +37,13 @@ C:\Users\User\Desktop\VSunProjects\C_Sharf\Inzhor\Elevator\WindowsFormsApp1\obj\
 C:\Users\User\Desktop\VSunProjects\C_Sharf\Inzhor\Elevator\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 C:\Users\User\Desktop\VSunProjects\C_Sharf\Inzhor\Elevator\WindowsFormsApp1\obj\Debug\Hometask.csproj.GenerateResource.Cache
 C:\Users\User\Desktop\VSunProjects\C_Sharf\Inzhor\Elevator\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Views.Form1.resources
+D:\simpleElevator\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\simpleElevator\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\simpleElevator\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\simpleElevator\WindowsFormsApp1\obj\Debug\Hometask.csproj.AssemblyReference.cache
+D:\simpleElevator\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\simpleElevator\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Views.Form1.resources
+D:\simpleElevator\WindowsFormsApp1\obj\Debug\Hometask.csproj.GenerateResource.cache
+D:\simpleElevator\WindowsFormsApp1\obj\Debug\Hometask.csproj.CoreCompileInputs.cache
+D:\simpleElevator\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\simpleElevator\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
